@@ -2,8 +2,11 @@
 
 ## CSS
 
+> CSS/Sass coding standards and guidelines
+
 ### CSS Principles
-> Follow these rules unless there is a technical reason why you can’t, eg: CMS produced code
+
+_Follow these rules unless there is a technical reason why you can’t, eg: CMS produced code_
 
 ### Sass
 Using Sass allows us to do many things.
