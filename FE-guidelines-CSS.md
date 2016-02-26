@@ -1,120 +1,191 @@
-# Frontend Guidelines
+# CSS Guidelines
 
-## CSS
+##Contents
+ * TL;DR
+ * Directory structure
+ * Name-spacing
+	 * Common name-spaces
+ * BEM
+ * Sass
+	 * Nesting
+	 * Elements
+	 * Sibling and child selectors
+	 * Extend
+* Normalize
+* Auto-prefixing
+* Pixel-based units
 
-> CSS/Sass coding standards and guidelines
+##TL;DR
 
-### CSS Principles
+* [Sass](http://sass-lang.com/)
+* [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) ([name-spaced](http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/))
+* [ITCSS](http://www.creativebloq.com/web-design/manage-large-scale-web-projects-new-css-architecture-itcss-41514731?page=1)
+* [Auto-prefixing](https://css-tricks.com/autoprefixer/)
+* Pixel based units
 
-_Follow these rules unless there is a technical reason why you can’t, eg: CMS produced code_
+##Directory structure
 
-### Sass
-Using Sass allows us to do many things.
+We follow the [ITCSS](http://www.creativebloq.com/web-design/manage-large-scale-web-projects-new-css-architecture-itcss-41514731?page=1) architecture, and keep files named and organised according to content.
+```
+styles
+├─ _settings
+│   ├ _settings.colours.scss
+│   └ _settings.dimensions.scss
+├─ _tools
+│   ├ _tools.functions.scss
+│   └ _tools.mixins.scss
+├─ _generic
+│   ├ _generic.box-model.scss
+│   └ _generic.normalize.scss
+├─ _elements
+│   ├ _elements.buttons.scss
+│   ├ _elements.headings.scss
+│   └ _elements.links.scss
+├─ _objects
+│   ├ _objects.lists.scss
+│   └ _objects.media.scss
+├─ _components
+│   ├ _components.buttons.scss
+│   ├ _components.header.scss
+│   └ _components.logo.scss
+└─ _trumps
+     └ _trumps.widths.scss
+```
 
-#### Modularity - files do one thing
-One of these things is to split our files into modular components, for example:
-````
-_source/
-|- styles/
-|  |- _tools/
-|    |- _tools.typography.scss
-|  |- _settings/
-|    |- _settings.global.scss
-|  |- _objects/
-|    |- _objects.layout.scss
-|  |- _generic/
-|    |- _generic.box-sizing.scss
-|  |- _elements/
-|    |- _elements.links.scss
-````
-Think about where your CSS should be written. If a style you write isn’t related to anything in an existing file, create a new one.
+##Name-spacing
 
-#### Generate contents
-@todo: a bit about [sass-generate-contents](https://github.com/andrewbrandwood/gulp-sass-generate-contents).
+To help devs from the future find code more easily, classes should be name-spaced so as to identify their type.  E.g. a class of  `.o-block`  will be found in `_objects.block.scss`.
 
-#### Source maps
-We use an automatically built source map to see where styles are in `.scss` file when we inspect in the browser.
+### Common name-spaces
 
-#### Variables
-@todo: a bit about variables:
-- why we use them
-- naming conventions
+**`o-`**: Signify that something is an Object, and that it may be used in any number of unrelated contexts to the one you can currently see it in. Making modifications to these types of class could potentially have knock-on effects in a lot of other unrelated places. Tread carefully.
 
-### No excessive nesting of classes
-```scss
-.header {
-	&__navigation {
-		&--small {}
-	}
+**`c-`**: Signify that something is a Component. This is a concrete, implementation-specific piece of UI. All of the changes you make to its styles should be detectable in the context you’re currently looking at. Modifying these styles should be safe and have no side effects.
+
+**`u-`**: Signify that this class is a Utility class. It has a very specific role (often providing only one declaration) and should not be bound onto or changed. It can be reused and is not tied to any specific piece of UI.
+
+> http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+
+
+##BEM
+
+We follow the [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) methodology, using hyphenated class names rather than camel case. Single hyphens can be used in blocks, elements or modifiers to make names more readable.
+
+```
+.o-block__element--modifier {}
+.o-block__element--modifier-name{}
+```
+
+##Sass
+
+###Nesting
+
+**DON'T**. One class should not depend on another. Classes should be portable without needing specific parents or grandparents. Specificity is also kept as low as possible this way.
+
+Wrong:
+
+```
+.o-block {
+    .o-block__element {}
 }
 ```
-Is unnecessary…
-```scss
-.header {}
-.header__navigation {}
-.header__navigation--small {}
+Right:
 ```
-The above is more readable and makes it easier to <kbd>cmd</kbd> + <kbd>f</kbd> in a project to find a selector that you’ve found in the browser.
+.o-block {}
+    .o-block__element {}
+```
+Use indenting to help give structure to related classes.
 
-### Nesting is acceptable for:
-#### States, eg:
-```scss
-.link {
-	&:hover {}
+Only use nesting for pseudo elements and states such as `:before` and `:hover`, where you need to override a class based upon a dependancy or if you are using a BEM modifier to apply modified styles.
+
+Acceptable:
+
+```
+.o-block {
+    &:hover {}
+    .no-js & {}
+}
+
+.o-block__title {
+	.o-block--modifier & {}
 }
 ```
 
-#### Pseudo elements, eg:
+###Elements
 
-```scss
-.list__item {
-	&::before,
-	&::after {}
+Elements are like children, they deserve names. Unless an element is truly generic and uses a global style, give it a name.
+
+> "Your selectors should be as explicit as your reason for wanting to select something."
+> — *[Harry Roberts](http://csswizardry.com/2012/10/a-classless-class-on-using-more-classes-in-your-html/)*
+
+Wrong:
+```
+.o-block {
+    h1 {}
 }
 ```
 
-#### Dependencies, eg
-```scss
-// @todo: example
+Right:
+
+```
+.o-block {}
+    .o-block__title {}
 ```
 
-### Comments
-Sensibly use comment blocks detailing the start of component styles:
-```scss
-// todo: example
+###Sibling and child selectors
+
+It's OK to select an element using `:first-child` or `+` etc if it's necessary and appropriate. Think about the use case. Will the target always be the first child? What if it moves?
+
+###Extend
+
+**DON'T**. Extending creates relationships between rules based on shared traits that are purely coincidental. It makes it difficult to inspect an element and can disguise how bloated your rules are. Extend also produces larger files (after gzipping). **USE A MIXIN INSTEAD**.
+
+Learn more:
+
+> [When to use @extend; when to use a mixin](http://csswizardry.com/2014/11/when-to-use-extend-when-to-use-a-mixin/) [Harry Roberts]
+> [Sass: Mixin or Placeholder?](http://www.sitepoint.com/sass-mixin-placeholder/) [Hugo Giraudel]
+> [Mixins are better for performance](csswizardry.com/2016/02/mixins-better-for-performance/) [Harry Roberts]
+
+##Normalize
+We use [Normalize,css](http://necolas.github.io/normalize.css/) to ensure consistency across browsers. **Do not directly modify these classes**, as the normalize.css file may be upgraded in future.
+
+##Linting
+
+We use [scss-lint](https://github.com/brigade/scss-lint). In addition to scss-lint's default settings, we use the file below.
+
+```
+linters:
+
+  Indentation:
+    allow_non_nested_indentation: true
+    enabled: true
+    character: tab
+    width: 1
+
+  LeadingZero:
+    enabled: false
+
+  NameFormat:
+    enabled: false
+
+  SelectorFormat:
+    convention: ^(_)?[a-z]+-[a-z0-9-]+((_{2}|-{2})?[a-z0-9-]+)?(-{2}[a-z0-9-]+)?[a-z0-9]$
+    convention_explanation: 'should be written in namespaced, hyphenated BEM format'
+    ignored_types: [element]
+
+  Shorthand:
+    enabled: false
+
+  SpaceAfterPropertyColon:
+    enabled: true
+    style: at_least_one_space
+
 ```
 
-Comment when something you’ve written is out of the ordinary so other developers know why you had to do it:
-```scss
-// todo: example
-```
+##Auto-prefixing
 
-#### CSS Methodology
-- [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax)
-- [ITCSS](https://speakerdeck.com/dafed/managing-css-projects-with-itcss)
+We use [autoprefixer](https://css-tricks.com/autoprefixer/) to manage vendor prefixes.
 
-#### Selectors
-Namespaces: refer to [More Transparent UI Code with Namespaces](http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/#the-namespaces) by Harry Roberts.
+##Pixel-based units
 
-#### Properties
-- Don’t prefix new CSS properties eg `-webkit-transform-` - Autoprefixer does this (it also removes un-needed prefixes that have been left in)
-- Don’t use a mixin to convert to `rem` units - [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem) does this. Writing in pixels is easier to take values from PSDs etc
-
-#### Folder structure (including ITCSS)
-eg:
-`sass/settings/_settings.breakpoints.scss`
-- @todo more
-
-#### Normalize
-We use [Normalize](https://necolas.github.io/normalize.css) as a CSS base.
-
-**Don’t touch this file!**
-
-#### Linting
-- [scss-lint](https://github.com/brigade/scss-lint)
-- config file - we need to standardise this and create a repository for config files
-- `@todo: that ^`
-
-#### CSS Style
-- Grouping - Alphabetised properties (controversial!)
-- Comment at top of file as per [sass-generate-contents](https://github.com/andrewbrandwood/gulp-sass-generate-contents)
+Units should be written in pixels, rather than rems. Instead of a mixin, use something like [pxtorem](https://www.npmjs.com/package/pxtorem) to handle conversion.
