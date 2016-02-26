@@ -84,14 +84,14 @@ We follow the [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head
 
 **DON'T**. One class should not depend on another. Classes should be portable without needing specific parents or grandparents. Specificity is also kept as low as possible this way.
 
-Wrong:
+Bad example:
 
 ```
 .o-block {
     .o-block__element {}
 }
 ```
-Right:
+Good example:
 ```
 .o-block {}
     .o-block__element {}
@@ -120,14 +120,14 @@ Elements are like children, they deserve names. Unless an element is truly gener
 > "Your selectors should be as explicit as your reason for wanting to select something."
 > — *[Harry Roberts](http://csswizardry.com/2012/10/a-classless-class-on-using-more-classes-in-your-html/)*
 
-Wrong:
+Bad example:
 ```
 .o-block {
     h1 {}
 }
 ```
 
-Right:
+Good example:
 
 ```
 .o-block {}
