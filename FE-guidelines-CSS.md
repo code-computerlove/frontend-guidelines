@@ -1,19 +1,19 @@
 # CSS Guidelines
 
 ##Contents
- * TL;DR
- * Directory structure
- * Name-spacing
-	 * Common name-spaces
- * BEM
- * Sass
-	 * Nesting
-	 * Elements
-	 * Sibling and child selectors
-	 * Extend
-* Normalize
-* Auto-prefixing
-* Pixel-based units
+ * [TL;DR](#tldr)
+ * [Directory structure](#directory-structure)
+ * [Name-spacing](#name-spacing)
+	 * [Common name-spaces](#common-name-spaces)
+ * [BEM](#bem)
+ * [Sass](#sass)
+	 * [Nesting](#nesting)
+	 * [Elements](#elements)
+	 * [Sibling and child selectors](#sibling-and-child-selectors)
+	 * [Extend](#extend)
+* [Normalize](#normalize)
+* [Auto-prefixing](#auto-prefixing)
+* [Pixel-based units](#pixel-based-units)
 
 ##TL;DR
 
@@ -63,6 +63,8 @@ To help devs from the future find code more easily, classes should be name-space
 **`c-`**: Signify that something is a Component. This is a concrete, implementation-specific piece of UI. All of the changes you make to its styles should be detectable in the context you’re currently looking at. Modifying these styles should be safe and have no side effects.
 
 **`u-`**: Signify that this class is a Utility class. It has a very specific role (often providing only one declaration) and should not be bound onto or changed. It can be reused and is not tied to any specific piece of UI.
+
+Learn more:
 
 > http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
 
@@ -142,9 +144,9 @@ It's OK to select an element using `:first-child` or `+` etc if it's necessary a
 
 Learn more:
 
-> [When to use @extend; when to use a mixin](http://csswizardry.com/2014/11/when-to-use-extend-when-to-use-a-mixin/) [Harry Roberts]
-> [Sass: Mixin or Placeholder?](http://www.sitepoint.com/sass-mixin-placeholder/) [Hugo Giraudel]
-> [Mixins are better for performance](csswizardry.com/2016/02/mixins-better-for-performance/) [Harry Roberts]
+> * [When to use @extend; when to use a mixin](http://csswizardry.com/2014/11/when-to-use-extend-when-to-use-a-mixin/) [Harry Roberts]
+> * [Sass: Mixin or Placeholder?](http://www.sitepoint.com/sass-mixin-placeholder/) [Hugo Giraudel]
+> * [Mixins are better for performance](csswizardry.com/2016/02/mixins-better-for-performance/) [Harry Roberts]
 
 ##Normalize
 We use [Normalize,css](http://necolas.github.io/normalize.css/) to ensure consistency across browsers. **Do not directly modify these classes**, as the normalize.css file may be upgraded in future.
