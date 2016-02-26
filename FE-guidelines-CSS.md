@@ -149,7 +149,7 @@ Learn more:
 > * [Mixins are better for performance](csswizardry.com/2016/02/mixins-better-for-performance/) [Harry Roberts]
 
 ##Normalize
-We use [Normalize,css](http://necolas.github.io/normalize.css/) to ensure consistency across browsers. **Do not directly modify these classes**, as the normalize.css file may be upgraded in future.
+We use [Normalize.css](http://necolas.github.io/normalize.css/) to ensure consistency across browsers. **Do not directly modify these classes**, as the normalize.css file may be upgraded in future.
 
 ##Linting
 
