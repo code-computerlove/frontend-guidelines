@@ -1,6 +1,6 @@
 # Frontend Guidelines
 
-## Suport
+## Support
 
 > Browser support, progressive enhancement guidelines
 
