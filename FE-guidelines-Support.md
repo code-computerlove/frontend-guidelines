@@ -1,6 +1,7 @@
 # Frontend Guidelines
 
-## Support
+## Support and Optimization
+It's important to recognize the difference between ["support" and "optimization"](http://bradfrost.com/blog/mobile/support-vs-optimization/). You should do your best to support as many environments as possible while simultaneously optimizing for the environments that make the most sense for your business and users.
 
 > Browser support, progressive enhancement guidelines
 
@@ -8,7 +9,7 @@
 
 Code support the notion that all our websites should be device agnostic and should be functional regardless of device used to access.
 
-Beign device agnostic, whilst helping us deliver a functional website on all our projects can result in confusion in what is actually meant.
+Being device agnostic, whilst helping us deliver a functional website on all our projects can result in confusion in what is actually meant.
 
 This document will try to provide a bit of clarity and outline some specific browsers and devices as a benchmark and standard to refer to.
 
@@ -44,10 +45,3 @@ Where ‘latest version’ is listed, it means the latest stable version plus on
 |Android            |4.x     |Google Chrome	    |Compliant|
 |Android Browser	  |        |                  |Compliant|
 |Windows Phone	    |8.1	   |Internet Explorer	|Compliant|
-
- 
-
-> We’re using this questionnaire to form the basis of Code Computerlove’s [front end coding standards](https://github.com/code-computerlove/code-standards).
-
-## Support and Optimization
-It's important to recognize the difference between ["support" and "optimization"](http://bradfrost.com/blog/mobile/support-vs-optimization/). You should do your best to support as many environments as possible while simultaneously optimizing for the environments that make the most sense for your business and users.
