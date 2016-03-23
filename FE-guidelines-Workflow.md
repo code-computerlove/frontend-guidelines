@@ -6,6 +6,7 @@
 
 * * *
 
-> We’re using this questionnaire to form the basis of Code Computerlove’s [front end coding standards](https://github.com/code-computerlove/code-standards).
+## [Cartridge](https://github.com/cartridge/cartridge)
+
 ## Tooling
 - [Editor Config](http://editorconfig.org)
