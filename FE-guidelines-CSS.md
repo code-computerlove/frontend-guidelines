@@ -7,13 +7,13 @@
 	 * [Common name-spaces](#common-name-spaces)
  * [BEM](#bem)
  * [Sass](#sass)
-	 * [Nesting](#nesting)
-	 * [Elements](#elements)
-	 * [Sibling and child selectors](#sibling-and-child-selectors)
-	 * [Extend](#extend)
-* [Normalize](#normalize)
-* [Auto-prefixing](#auto-prefixing)
-* [Pixel-based units](#pixel-based-units)
+	* [Nesting](#nesting)
+	* [Elements](#elements)
+	* [Sibling and child selectors](#sibling-and-child-selectors)
+	* [Extend](#extend)
+	* [Normalize](#normalize)
+	* [Auto-prefixing](#auto-prefixing)
+	* [Pixel-based units](#pixel-based-units)
 
 ##TL;DR
 
