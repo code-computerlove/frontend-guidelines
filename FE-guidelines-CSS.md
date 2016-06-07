@@ -146,7 +146,7 @@ Learn more:
 
 > * [When to use @extend; when to use a mixin](http://csswizardry.com/2014/11/when-to-use-extend-when-to-use-a-mixin/) [Harry Roberts]
 > * [Sass: Mixin or Placeholder?](http://www.sitepoint.com/sass-mixin-placeholder/) [Hugo Giraudel]
-> * [Mixins are better for performance](csswizardry.com/2016/02/mixins-better-for-performance/) [Harry Roberts]
+> * [Mixins are better for performance](http://csswizardry.com/2016/02/mixins-better-for-performance/) [Harry Roberts]
 
 ##Normalize
 We use [Normalize.css](http://necolas.github.io/normalize.css/) to ensure consistency across browsers. **Do not directly modify these classes**, as the normalize.css file may be upgraded in future.
