@@ -26,12 +26,12 @@ Where ‘latest version’ is listed, it means the latest stable version plus on
 
 | Operating system     |Browser                         |Support    |
 |----------------------|--------------------------------|-----------|
-|Windows	             |Internet Explorer <=8	          |functional |
-|                      |Internet Explorer 9+	          |Compliant  |
+|Windows	             |Internet Explorer <=9	          |functional |
+|                      |Internet Explorer 10+	          |Compliant  |
 |                      |Edge (latest version)	          |Compliant  |
 |                      |Google Chrome (latest version)  |Compliant  |
 |                      |Mozilla Firefox (latest version)|Compliant  |
-|Mac OS X              |Safari 8+	                      |Compliant  |
+|Mac OS X              |Safari (latest)                 |Compliant  |
 |                      |Google Chrome (latest version)	|Compliant  |
 |                      |Mozilla Firefox (latest version)|Compliant  |
 
@@ -40,8 +40,8 @@ Where ‘latest version’ is listed, it means the latest stable version plus on
 
 |Operating system	  |Version	|Browser	        |Support  |
 |-------------------|--------|------------------|---------|
-|iOS	              |7+	     |Mobile Safari	    |Compliant|
-|Google             |        |Chrome	          |Compliant|
-|Android            |4.x     |Google Chrome	    |Compliant|
-|Android Browser	  |        |                  |Compliant|
-|Windows Phone	    |8.1	   |Internet Explorer	|Compliant|
+|iOS	              |9+	     |Mobile Safari	    |Compliant|
+|iOS	              |latest  |Chrome      	    |Compliant|
+|Google             |latest  |Chrome	          |Compliant|
+|Android            |latest  |Google Chrome	    |Compliant|
+|Windows Phone	    |latest  |Internet Explorer	|Compliant|
