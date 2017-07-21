@@ -26,8 +26,8 @@ Where ‘latest version’ is listed, it means the latest stable version plus on
 
 | Operating system     |Browser                         |Support    |
 |----------------------|--------------------------------|-----------|
-|Windows	             |Internet Explorer <=9	          |functional |
-|                      |Internet Explorer 10+	          |Compliant  |
+|Windows	             |Internet Explorer 8-10          |functional |
+|                      |Internet Explorer 11	          |Compliant  |
 |                      |Edge (latest version)	          |Compliant  |
 |                      |Google Chrome (latest version)  |Compliant  |
 |                      |Mozilla Firefox (latest version)|Compliant  |
@@ -40,7 +40,7 @@ Where ‘latest version’ is listed, it means the latest stable version plus on
 
 |Operating system	  |Version	|Browser	        |Support  |
 |-------------------|--------|------------------|---------|
-|iOS	              |9+	     |Mobile Safari	    |Compliant|
+|iOS	              |9.3+	   |Mobile Safari	    |Compliant|
 |iOS	              |latest  |Chrome      	    |Compliant|
 |Google             |latest  |Chrome	          |Compliant|
 |Android            |latest  |Google Chrome	    |Compliant|
