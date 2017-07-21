@@ -26,7 +26,7 @@ Where ‘latest version’ is listed, it means the latest stable version plus on
 
 | Operating system     |Browser                         |Support    |
 |----------------------|--------------------------------|-----------|
-|Windows	             |Internet Explorer 8-10          |functional |
+|Windows	             |Internet Explorer 9-10          |functional |
 |                      |Internet Explorer 11	          |Compliant  |
 |                      |Edge (latest version)	          |Compliant  |
 |                      |Google Chrome (latest version)  |Compliant  |
